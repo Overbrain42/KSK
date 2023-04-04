@@ -1,0 +1,19 @@
+<table class="constructor-table">
+  <tr>
+    <td class="corner-cell"></td>
+    <td *ngFor="let item of [].constructor(data.colElements); let i = index"><div class="cell-block header">{{i + 1}}</div></td>
+    <td><span class="cell-block header btn" (click)="addCol()">Добавить структуры</span></td>
+  </tr>
+  <tr *ngFor="let row of source; let i = index" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event, row)">
+    <td><div class="cell-block col">{{i + 1}}</div></td>
+    <td *ngFor="let cell of row" cdkDrag>
+      <div *ngIf="cell.type === cellTypes.Cell; else addBtn" class="cell-block grid">{{cell.name}}</div>
+      <ng-template #addBtn>
+        <span class="add-btn" (click)="addCell(i+1)">+</span>
+      </ng-template>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="cell-block col btn rotate" (click)="addRow()">Добавить уровень</span></td>
+  </tr>
+</table>

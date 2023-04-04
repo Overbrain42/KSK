@@ -1,0 +1,9 @@
+<form [formGroup]="modalForm" (ngSubmit)="onSubmit()">
+  <p>{{new ? 'Новая структура' : 'Редактирование структуры'}}</p>
+  <div>
+    <label for="name">Название:</label>
+    <input formControlName="name" id="name">
+  </div>
+  <button [disabled]="!modalForm.valid" type="submit">Принять</button>
+  <button (click)="close()">Отмена</button>
+</form>

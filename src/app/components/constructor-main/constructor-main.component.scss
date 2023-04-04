@@ -1,0 +1,75 @@
+$header-size: 28px;
+$add-btn-size: 20px;
+$cell-size-x: 200px;
+$cell-size-y: 75px;
+
+.constructor-table {
+  height: 1px;
+  td {
+    position: relative;
+    min-height: $header-size;
+    min-width: $header-size;
+    text-align: center;
+  }
+
+  .corner-cell {
+    background-color: #423e4e;
+  }
+
+  .add-btn {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: cornflowerblue;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid cornflowerblue;
+    width: $add-btn-size;
+    height: $add-btn-size;
+    cursor: pointer;
+  }
+}
+
+.cell-block {
+  margin: 5px;
+  padding: 5px;
+  background-color: cornflowerblue;
+  color: white;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.grid {
+    width: $cell-size-x;
+    height: $cell-size-y;
+  }
+
+  &.header {
+    width: $cell-size-x;
+    margin: 0 5px;
+  }
+
+  &.col {
+    height: $cell-size-y;
+    margin: 5px 0;
+  }
+
+  &.btn {
+    cursor: pointer;
+  }
+
+  &.rotate {
+    box-sizing: border-box;
+    position: absolute;
+    top: 28px;
+    left: -23px;
+    transform: rotate(-90deg);
+    height: $header-size;
+    width: $cell-size-y;
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
