@@ -6,8 +6,10 @@
   </tr>
   <tr *ngFor="let row of source; let i = index" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event, row)">
     <td><div class="cell-block col">{{i + 1}}</div></td>
-    <td *ngFor="let cell of row" cdkDrag>
-      <div *ngIf="cell.type === cellTypes.Cell; else addBtn" class="cell-block grid">{{cell.name}}</div>
+    <td *ngFor="let cell of row">
+      <div cdkDrag #cellEl *ngIf="cell.type === cellTypes.Cell; else addBtn"
+           (contextmenu)="onRightClick($event, cell)" class="cell-block grid" [id]="cell.id"
+      [ngClass]="{'active': cell.id === activeSelection?.id}">{{cell.name}}</div>
       <ng-template #addBtn>
         <span class="add-btn" (click)="addCell(i+1)">+</span>
       </ng-template>

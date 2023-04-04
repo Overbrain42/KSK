@@ -5,6 +5,7 @@ $cell-size-y: 75px;
 
 .constructor-table {
   height: 1px;
+  position: relative;
   td {
     position: relative;
     min-height: $header-size;
@@ -45,6 +46,9 @@ $cell-size-y: 75px;
   &.grid {
     width: $cell-size-x;
     height: $cell-size-y;
+    &.active {
+      outline: 1px solid green;
+    }
   }
 
   &.header {
